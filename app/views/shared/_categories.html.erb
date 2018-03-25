@@ -1,0 +1,11 @@
+<h2>Kategoria</h2>
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <%= link_to "#{category.name} (#{category.count})",
+                  search_path(query: params[:query],
+                              filter: {category_names: category.name,
+                                       manufacturer_name: @manufacturer_name}) %>
+    </li>
+  <% end %>
+</ul>

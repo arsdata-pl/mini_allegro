@@ -1,0 +1,11 @@
+<h2>Marka</h2>
+<ul>
+  <% @manufacturers.each do |manufacturer| %>
+    <li>
+      <%= link_to "#{manufacturer.name} (#{manufacturer.count})",
+                  search_path(query: params[:query],
+                              filter: {manufacturer_name: manufacturer.name,
+                                       category_names: @category_name}) %>
+    </li>
+  <% end %>
+</ul>

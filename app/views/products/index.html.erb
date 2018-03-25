@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col">
+    <%= render 'shared/search' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2">
+    <%= render 'shared/categories', categories: @categories %>
+    <hr />
+    <%= render 'shared/manufacturers', manufacturers: @manufacturers %>
+  </div>
+  <div class="col-10">
+    <% if @products.empty? %>
+      Nie znaleziono produktów
+    <% else %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Kategoria</th>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>EAN</th>
+            <th>Producent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= product.id %></td>
+              <td><%= product.categories.map(&:obj_ancestors).flatten.reverse.map(&:name).join(" > ") %></td>
+              <td><%= product.name %></td>
+              <td><%= product.price %></td>
+              <td><%= product.ean %></td>
+              <td><%= product.manufacturer.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= paginate @products, theme: 'twitter-bootstrap-4' %>
+    <% end %>
+  </div>
+</div>

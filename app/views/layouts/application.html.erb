@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MiniAllegro</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!-- As a link -->
+    <nav class="navbar navbar-light bg-light">
+      <%= link_to 'MiniAllegro', root_path, class: 'navbar-brand' %>
+    </nav>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "mini_allegro",
+  "private": true,
+  "dependencies": {
+    "datatables": "^1.10.13"
+  }
+}
